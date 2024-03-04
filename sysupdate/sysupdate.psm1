@@ -1,27 +1,31 @@
 function sysupdate {
+  $esc=$([char]27)
+  $blue="[38;5;27m"
+  $magenta="[38;5;199m"
+  
   UpdateProgressBar 10
-  Write-Host $($PSStyle.bold)`e[4m WinGet Updates`e[24m$($PSStyle.BoldOff) -ForegroundColor Magenta
+  Write-Host "`n$esc$blue $esc$magenta$esc[4mWinget Updates$esc[0m"
   winget update --all -h
 
   UpdateProgressBar 20
-  Write-Host $($PSStyle.bold)`e[4m󰜐 Scoop Updates`e[24m$($PSStyle.BoldOff) -ForegroundColor Magenta
+  Write-Host "`n$esc$blue󰜐 $esc$magenta$esc[4mScoop Updates$esc[0m"
   scoop update --all -q
 
   UpdateProgressBar 40
-  Write-Host $($PSStyle.bold)`e[4m󰨇 Dell Updates`e[24m$($PSStyle.BoldOff) -ForegroundColor Magenta
+  Write-Host "`n$esc$blue󰨇 $esc$magenta$esc[4mDell Updates$esc[0m"
   dcu-cli.exe /scan -silent
   dcu-cli.exe /applyupdates -silent
 
   UpdateProgressBar 60
-  Write-Host $($PSStyle.bold)`e[4m󰖳 Windows Updates`e[24m$($PSStyle.BoldOff) -ForegroundColor Magenta
+  Write-Host "`n$esc$blue󰖳 $esc$magenta$esc[4mWindows Updates$esc[0m"
   Get-WindowsUpdate -Install -AcceptAll -MicrosoftUpdate:$MicrosoftUpdates
 
   UpdateProgressBar 80
-  Write-Host $($PSStyle.bold)`e[4m󰓜 Windows Store Updates`e[24m$($PSStyle.BoldOff) -ForegroundColor Magenta
+  Write-Host "`n$esc$blue󰓜 $esc$magenta$esc[4mWindows Store Updates$esc[0m"
   Get-CimInstance -Namespace "Root\cimv2\mdm\dmmap" -ClassName "MDM_EnterpriseModernAppManagement_AppManagement01" | Invoke-CimMethod -MethodName UpdateScanMethod
   
   UpdateProgressBar 100
-  Write-Host $($PSStyle.bold)`e[4m󱦟 Updates Complete`e[24m$($PSStyle.BoldOff) -ForegroundColor Magenta
+  Write-Host "`n$esc$blue󱦟 $esc$magenta$esc[4mUpdates Complete$esc[0m"
 
   UpdateProgressBar 0
 }
