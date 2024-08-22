@@ -8,4 +8,4 @@ I also really love learning new things, especially about technology. As an examp
 
 I really enjoy teaching too, whether it be speaking or writing. I used to be an MCT and I've had several books published, authored a number of video courses and spoken at a variety of conferences in front of hundreds of people. If I get the opportunity to teach or help someone learn something new, I take it.
 
-👷 Working with : C# / REACT / JS / HTML / CSS / SQL / TypeScript
+![Metrics](/github-metrics.svg)
